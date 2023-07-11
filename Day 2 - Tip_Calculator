@@ -1,0 +1,51 @@
+# Today's project was to create a simple tip calculator based on user input with 3 Tip Options - only needing 1 working option to pass. 
+# I went further and made all 3 options functional as well as included a method system to ask for the predetermined values if an incorrect was input.
+# This continues until an acceptable tip is acquired and will then follow through with producing the bill amount, tip included per person
+
+def correctTip(total, partySize):
+  tipAmount = int(input("What percentage of tip would you like to add? [Percent %: 15, 18 or 20]\n"))
+
+  amountOwed15 = round((total/partySize)*1.15,2)
+  amountOwed18 = round((total/partySize)*1.18,2)
+  amountOwed20 = round((total/partySize)*1.20,2)
+
+  if tipAmount == 15:
+    print(f"Everyone should pay ${amountOwed15}")
+    return
+  elif tipAmount == 18:
+    print(f"Everyone should pay ${amountOwed18}")
+    return
+  elif tipAmount == 20:
+    print(f"Everyone should pay ${amountOwed20}") 
+    return
+
+  if tipAmount != 15 and tipAmount != 18 and tipAmount != 20:
+    print("Please choose one of the tip options available.\n")
+    correctTip(total, partySize)
+    
+def tipCalculate():
+  print("Welcome to the Tip Calculator!\n")
+  
+  total = int(input("What was the total bill?\n"))
+  tipAmount = int(input("What percentage of tip would you like to add? [Percent %: 15, 18 or 20]\n"))
+  partySize = int(input("How many person(s) in your party?\n"))
+  
+  amountOwed15 = round((total/partySize)*1.15,2)
+  amountOwed18 = round((total/partySize)*1.18,2)
+  amountOwed20 = round((total/partySize)*1.20,2)
+
+  if tipAmount == 15:
+    print(f"Everyone should pay ${amountOwed15}")
+    return
+  elif tipAmount == 18:
+    print(f"Everyone should pay ${amountOwed18}")
+    return
+  elif tipAmount == 20:
+    print(f"Everyone should pay ${amountOwed20}") 
+    return
+    
+  if tipAmount != 15 and tipAmount != 18 and tipAmount != 20:
+    print("Please choose one of the tip options available.")
+    correctTip(total, partySize)
+    
+tipCalculate()
